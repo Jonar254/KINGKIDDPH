@@ -36,35 +36,21 @@
 <!-- Include PhotoSwipe's core CSS and default skin -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.min.css" integrity="sha512-LFWtdAXHQuwUGH9cImO9blA3a3GfQNkpF2uRlhaOpSbDevNyK1rmAjs13mtpjvWyi+flP7zYWboqY+8Mkd42xA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<style>
-html.sr .reveal {
-    visibility: hidden;
-}
-</style>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
       ScrollReveal().reveal('.reveal', {
         duration: 1000,      // Duration of the animation
+        
         easing: 'ease-in-out', // Easing for a smooth animation
+        reset: true,         // Resets the animation on every scroll past the element
         viewFactor: 0.3,     // Percentage of the element that must be within the viewport
         mobile: true,        // Ensures that the animations work on mobile devices
+        cleanup: false       // Keeps styles applied by ScrollReveal for dynamic content
       });
     });
   </script>
   
-  
-  <script type="module">
-    import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe-lightbox.esm.min.js';
-    import PhotoSwipe from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.esm.min.js';
-  
-    const lightbox = new PhotoSwipeLightbox({
-        gallery: '#gallery--zoom-transition',
-        children: 'a',
-        bgOpacity: 0.9,
-        pswpModule: () => Promise.resolve(PhotoSwipe)
-    });
-    lightbox.init();
-</script>
 
 
     
@@ -315,8 +301,8 @@ html.sr .reveal {
                             <div id="gallery--zoom-transition" class="cust-row">
                                 <div class="cust-column">
                                     <div class="reveal">
-                                        <a href="assets/img/bg/img/img20.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 1 description">
-                                            <img src="assets/img/bg/img/img20.jpg" alt="Image 1" style="width:100%">
+                                        <a href="assets/img/bg/img/img1.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 1 description">
+                                            <img src="assets/img/bg/img/img1.jpg" alt="Image 1" style="width:100%">
                                         </a>
                                     </div>
                                     <div class="reveal">
@@ -325,7 +311,7 @@ html.sr .reveal {
                                         </a>
                                     </div>
                                     <div class="reveal">
-                                        <a href="assets/img/bg/img/img20.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 4 description">
+                                        <a href="assets/img/bg/img/img4.jpg" data-pswp-width="1500" data-pswp-height="1000" data-title="Image 4 description">
                                             <img src="assets/img/bg/img/img4.jpg" alt="Image 4" style="width:100%">
                                         </a>
                                     </div>
@@ -357,13 +343,13 @@ html.sr .reveal {
                                         </a>
                                     </div>
                                     <div class="reveal">
-                                        <a href="assets/img/bg/img/img20.jpg" data-pswp-width="1500" data-pswp-height="1000" data-title="Image 9 description">
+                                        <a href="assets/img/bg/img/img9.jpg" data-pswp-width="1500" data-pswp-height="1000" data-title="Image 9 description">
                                             <img src="assets/img/bg/img/img9.jpg" alt="Image 9" style="width:100%">
                                         </a>
                                     </div>
                                     <div class="reveal">
-                                        <a href="assets/img/bg/img/img20.jpg" data-pswp-width="1500" data-pswp-height="1000" data-title="Image 10 description">
-                                            <img src="assets/img/bg/img/img20.jpg" alt="Image 10" style="width:100%">
+                                        <a href="assets/img/bg/img/img10.jpg" data-pswp-width="1500" data-pswp-height="1000" data-title="Image 10 description">
+                                            <img src="assets/img/bg/img/img10.jpg" alt="Image 10" style="width:100%">
                                         </a>
                                     </div>
                                 </div>
@@ -374,8 +360,8 @@ html.sr .reveal {
                                         </a>
                                     </div>
                                     <div class="reveal">
-                                        <a href="assets/img/bg/img/img20.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 12 description">
-                                            <img src="assets/img/bg/img/img20.jpg" alt="Image 12" style="width:100%">
+                                        <a href="assets/img/bg/img/img12.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 12 description">
+                                            <img src="assets/img/bg/img/img12.jpg" alt="Image 12" style="width:100%">
                                         </a>
                                     </div>
                                     <div class="reveal">
@@ -623,6 +609,32 @@ html.sr .reveal {
     <!-- back to top end -->
 
     <!-- JS here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    
+      
+   
+      <script type="module">
+        import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe-lightbox.esm.min.js';
+        import PhotoSwipe from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.esm.min.js';
+    
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: '#gallery--zoom-transition',
+            children: 'a',
+            bgOpacity: 0.9,
+ 
+            pswpModule: () => Promise.resolve(PhotoSwipe),
+            mainClass: 'pswp-with-perma-preloader',
+            
+            
+        });
+        lightbox.init();
+      
+
+    </script>
+    
+   
+    
   
     
         
