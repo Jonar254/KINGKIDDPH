@@ -27,7 +27,12 @@
     <link rel="stylesheet" href="assets/css/style.css">
        
 <script src="assets/js/scrollreveal.min.js"></script>
+<style>
+    html.sr .reveal {
+    visibility: hidden;
+}
 
+</style>
 
 <!-- Include PhotoSwipe's core CSS and default skin -->
 
@@ -37,15 +42,25 @@
     document.addEventListener('DOMContentLoaded', function() {
       ScrollReveal().reveal('.reveal', {
         duration: 1000,      // Duration of the animation
-        
         easing: 'ease-in-out', // Easing for a smooth animation
-        reset: true,         // Resets the animation on every scroll past the element
         viewFactor: 0.3,     // Percentage of the element that must be within the viewport
         mobile: true,        // Ensures that the animations work on mobile devices
-        cleanup: false       // Keeps styles applied by ScrollReveal for dynamic content
       });
     });
   </script>
+      <script type="module">
+        import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe-lightbox.esm.min.js';
+        import PhotoSwipe from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.esm.min.js';
+      
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: '#gallery--zoom-transition',
+            children: 'a',
+            bgOpacity: 0.9,
+            pswpModule: () => Promise.resolve(PhotoSwipe)
+        });
+        lightbox.init();
+      </script>
+      
   
 </head>
 
@@ -279,83 +294,82 @@
             <div class="container">
                 <!-- Gallery Images -->
                 <div id="gallery--zoom-transition" class="cust-row">
-                    <div class="cust-column">
-                        <div class="reveal">
-                            <a href="assets/img/bg/img/img/32.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 1 description">
-                                <img src="assets/img/bg/img/img/32.jpg" alt="Image 1" style="width:100%">
-                            </a>
-                        </div>
-                        <div class="reveal">
-                            <a href="assets/img/bg/img/img/22.JPG" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 6 description">
-                                <img src="assets/img/bg/img/img/22.JPG" alt="Image 6" style="width:100%">
-                            </a>
-                        </div>
-                        <div class="reveal">
-                            <a href="assets/img/bg/img/img/35.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 4 description">
-                                <img src="assets/img/bg/img/img/35.jpg" alt="Image 4" style="width:100%">
-                            </a>
-                        </div>
-                        <div class="reveal">
-                            <a href="assets/img/bg/img/img/5.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 5 description">
-                                <img src="assets/img/bg/img/img/5.jpg" alt="Image 5" style="width:100%">
-                            </a>
-                        </div>
-                        <div class="reveal">
-                            <a href="assets/img/bg/img/img/23.JPG" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 8 description">
-                                <img src="assets/img/bg/img/img/23.JPG" alt="Image 8" style="width:100%">
-                            </a>
-                        </div> 
+                     <div class="cust-column">
+                    <div class="reveal">
+                        <a href="assets/img/bg/img/img/32.jpg" data-pswp-width="1000" data-pswp-height="1500">
+                            <img src="assets/img/bg/img/img/32.jpg" alt="Image 1" style="width:100%">
+                        </a>
                     </div>
-                    <div class="cust-column">
+                    <div class="reveal">
+                        <a href="assets/img/bg/img/img/22.JPG" data-pswp-width="1000" data-pswp-height="1500">
+                            <img src="assets/img/bg/img/img/22.JPG" alt="Image 2" style="width:100%">
+                        </a>
+                    </div>
+                    <div class="reveal">
+                        <a href="assets/img/bg/img/img/35.jpg" data-pswp-width="1000" data-pswp-height="1500">
+                            <img src="assets/img/bg/img/img/35.jpg" alt="Image 3" style="width:100%">
+                        </a>
+                    </div>
+                    <div class="reveal">
+                        <a href="assets/img/bg/img/img/5.jpg" data-pswp-width="1000" data-pswp-height="1500">
+                            <img src="assets/img/bg/img/img/5.jpg" alt="Image 4" style="width:100%">
+                        </a>
+                    </div>
+                    <div class="reveal">
+                        <a href="assets/img/bg/img/img/23.JPG" data-pswp-width="1000" data-pswp-height="1500">
+                            <img src="assets/img/bg/img/img/23.JPG" alt="Image 5" style="width:100%">
+                        </a>
+                    </div>
+                </div>                   <div class="cust-column">
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/33.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 6 description">
+                            <a href="assets/img/bg/img/img/33.jpg" data-pswp-width="1000" data-pswp-height="1500" >
                                 <img src="assets/img/bg/img/img/33.jpg" alt="Image 6" style="width:100%">
                             </a>
                         </div>
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/26.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 7 description">
+                            <a href="assets/img/bg/img/img/26.jpg" data-pswp-width="1000" data-pswp-height="1500">
                                 <img src="assets/img/bg/img/img/26.jpg" alt="Image 7" style="width:100%">
                             </a>
                         </div>
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/21.JPG" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 6 description">
+                            <a href="assets/img/bg/img/img/21.JPG" data-pswp-width="1000" data-pswp-height="1500" >
                                 <img src="assets/img/bg/img/img/21.JPG" alt="Image 6" style="width:100%">
                             </a>
                         </div>
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/9.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 9 description">
+                            <a href="assets/img/bg/img/img/9.jpg" data-pswp-width="1000" data-pswp-height="1500" >
                                 <img src="assets/img/bg/img/img/9.jpg" alt="Image 9" style="width:100%">
                             </a>
                         </div>
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/7.jpg" data-pswp-width="1500" data-pswp-height="1000" data-title="Image 10 description">
+                            <a href="assets/img/bg/img/img/7.jpg" data-pswp-width="1500" data-pswp-height="1000" >
                                 <img src="assets/img/bg/img/img/7.jpg" alt="Image 10" style="width:100%">
                             </a>
                         </div>
                     </div>
                     <div class="cust-column">
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/34.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 11 description">
+                            <a href="assets/img/bg/img/img/34.jpg" data-pswp-width="1000" data-pswp-height="1500" >
                                 <img src="assets/img/bg/img/img/34.jpg" alt="Image 11" style="width:100%">
                             </a>
                         </div>
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/27.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 12 description">
+                            <a href="assets/img/bg/img/img/27.jpg" data-pswp-width="1000" data-pswp-height="1500" >
                                 <img src="assets/img/bg/img/img/27.jpg" alt="Image 12" style="width:100%">
                             </a>
                         </div>
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/13.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 13 description">
+                            <a href="assets/img/bg/img/img/13.jpg" data-pswp-width="1000" data-pswp-height="1500" >
                                 <img src="assets/img/bg/img/img/13.jpg" alt="Image 13" style="width:100%">
                             </a>
                         </div>
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/14.JPG" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 13 description">
+                            <a href="assets/img/bg/img/img/14.JPG" data-pswp-width="1000" data-pswp-height="1500" >
                                 <img src="assets/img/bg/img/img/14.JPG" alt="Image 14" style="width:100%">
                             </a>
                         </div>
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/12.jpg" data-pswp-width="1500" data-pswp-height="1000" data-title="Image 3 description">
+                            <a href="assets/img/bg/img/img/12.jpg" data-pswp-width="1500" data-pswp-height="1000" >
                                 <img src="assets/img/bg/img/img/12.jpg" alt="Image 3" style="width:100%">
                             </a>
                         </div>
@@ -364,28 +378,28 @@
                
                     <div class="cust-column">
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/31.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 2 description">
+                            <a href="assets/img/bg/img/img/31.jpg" data-pswp-width="1000" data-pswp-height="1500" >
                                 <img src="assets/img/bg/img/img/31.jpg" alt="Image 2" style="width:100%">
                             </a>
                         </div>
                         
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/28.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 7 description">
+                            <a href="assets/img/bg/img/img/28.jpg" data-pswp-width="1000" data-pswp-height="1500" >
                                 <img src="assets/img/bg/img/img/28.JPG" alt="Image 7" style="width:100%">
                             </a>
                         </div>
                        <div class="reveal">
-                            <a href="assets/img/bg/img/img/17.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 8 description">
+                            <a href="assets/img/bg/img/img/17.jpg" data-pswp-width="1000" data-pswp-height="1500" >
                                 <img src="assets/img/bg/img/img/17.JPG" alt="Image 8" style="width:100%">
                             </a>
                         </div> 
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/18.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 9 description">
+                            <a href="assets/img/bg/img/img/18.jpg" data-pswp-width="1000" data-pswp-height="1500" >
                                 <img src="assets/img/bg/img/img/18.jpg" alt="Image 9" style="width:100%">
                             </a>
                         </div>
                         <div class="reveal">
-                            <a href="assets/img/bg/img/img/29.jpg" data-pswp-width="1500" data-pswp-height="1000" data-title="Image 10 description">
+                            <a href="assets/img/bg/img/img/29.jpg" data-pswp-width="1500" data-pswp-height="1000" >
                                 <img src="assets/img/bg/img/img/29.jpg" alt="Image 10" style="width:100%">
                             </a>
                         </div>
@@ -585,29 +599,23 @@
     <!-- back to top end -->
 
     <!-- JS here -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
     
     
       
-   
     <script type="module">
-      import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe-lightbox.esm.min.js';
-      import PhotoSwipe from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.esm.min.js';
-  
-      const lightbox = new PhotoSwipeLightbox({
-          gallery: '#gallery--zoom-transition',
-          children: 'a',
-          bgOpacity: 0.9,
-
-          pswpModule: () => Promise.resolve(PhotoSwipe),
-          mainClass: 'pswp-with-perma-preloader',
-          
-          
-      });
-      lightbox.init();
-    
-
-  </script>
+        import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe-lightbox.esm.min.js';
+        import PhotoSwipe from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.esm.min.js';
+      
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: '#gallery--zoom-transition',
+            children: 'a',
+            bgOpacity: 0.9,
+            pswpModule: () => Promise.resolve(PhotoSwipe)
+        });
+        lightbox.init();
+      </script>
+      
   
  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
