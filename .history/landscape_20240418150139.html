@@ -73,57 +73,52 @@ html.sr .reveal {
             isButton: false,
             appendTo: 'wrapper',
             onInit: (el, pswp) => {
-                let startY = 0;
-                const touchSensitivity = 10; // Extremely low sensitivity for high responsiveness
-
-                const handleTouchStart = (event) => {
-                    if (event.touches.length === 1) { // Only initiate for single touch
-                        startY = event.touches[0].screenY;
-                        event.preventDefault(); // Prevent default to avoid scrolling background
-                    }
-                };
+                let lastY;
+                const touchScrollThreshold = 50; // Touch scroll sensitivity threshold
 
                 const handleTouchMove = (event) => {
-                    if (event.touches.length === 1) {
-                        let moveY = event.touches[0].screenY;
-                        let diffY = moveY - startY;
-                        if (Math.abs(diffY) > touchSensitivity) {
+                    if (event.touches.length === 1) { // Single touch
+                        const currentY = event.touches[0].screenY;
+                        if (lastY === undefined) {
+                            lastY = currentY;
+                            return;
+                        }
+                        const diffY = currentY - lastY;
+                        if (Math.abs(diffY) > touchScrollThreshold) {
                             event.preventDefault(); // Prevent scrolling background
-                            pswp.close(); // Close the gallery if swipe is decisive
+                            pswp.close(); // Trigger gallery close
                         }
                     }
                 };
 
-                const enableTouchEvents = () => {
-                    window.removeEventListener('touchstart', handleTouchStart, { passive: false });
-                    window.removeEventListener('touchmove', handleTouchMove, { passive: false });
-                    // Delay re-enabling the scroll to prevent accidental page scroll
-                    setTimeout(() => {
-                        window.removeEventListener('wheel', handleScroll, { passive: false });
-                    }, 100);
-                };
-
-                const disableTouchEvents = () => {
-                    window.addEventListener('touchstart', handleTouchStart, { passive: false });
-                    window.addEventListener('touchmove', handleTouchMove, { passive: false });
-                    window.addEventListener('wheel', handleScroll, { passive: false });
-                };
-
-                const handleScroll = (event) => {
-                    event.preventDefault();
-                    if (Math.abs(event.deltaY) > touchSensitivity) {
-                        pswp.close();
+                const handleTouchStart = (event) => {
+                    if (event.touches.length === 1) {
+                        lastY = event.touches[0].screenY;
                     }
                 };
 
-                // Listen for opening and closing events to toggle scroll and touch behavior
-                pswp.on('openingAnimationStart', disableTouchEvents);
-                pswp.on('destroy', enableTouchEvents);
+                const enableTouchScroll = () => {
+                    window.removeEventListener('touchmove', handleTouchMove, { passive: false });
+                    window.removeEventListener('touchstart', handleTouchStart, { passive: false });
+                };
+                const disableTouchScroll = () => {
+                    window.addEventListener('touchstart', handleTouchStart, { passive: false });
+                    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+                };
+
+                // Toggle touch event listeners based on the gallery state
+                pswp.on('openingAnimationStart', () => {
+                    disableTouchScroll();
+                    disableScroll(); // Disable mouse wheel as well
+                });
+                pswp.on('destroy', () => {
+                    enableTouchScroll();
+                    enableScroll(); // Enable mouse wheel as well
+                });
             }
         });
     });
 </script>
-
 
 
 
@@ -380,7 +375,7 @@ html.sr .reveal {
                                         </a>
                                     </div>
                                     <div class="reveal">
-                                        <a href="assets/img/bg/img/img5.jpg" data-pswp-width="1000" data-pswp-height="1357" data-title="Image 5 description">
+                                        <a href="assets/img/bg/img/img5.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 5 description">
                                             <img src="assets/img/bg/img/img5.jpg" alt="Image 4" style="width:100%">
                                         </a>
                                     </div>
@@ -424,7 +419,7 @@ html.sr .reveal {
                                         </a>
                                     </div>
                                     <div class="reveal">
-                                        <a href="assets/img/bg/img/img24.jpg" data-pswp-width="1000" data-pswp-height="578" data-title="Image 12 description">
+                                        <a href="assets/img/bg/img/img24.jpg" data-pswp-width="1500" data-pswp-height="1000" data-title="Image 12 description">
                                             <img src="assets/img/bg/img/img24.jpg" alt="Image 12" style="width:100%">
                                         </a>
                                     </div>

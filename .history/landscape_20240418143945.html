@@ -66,67 +66,25 @@ html.sr .reveal {
 
     lightbox.init();
 
+    // After initializing the lightbox, set up an event listener for scroll events
     lightbox.on('uiRegister', function () {
         lightbox.pswp.ui.registerElement({
             name: 'scroll-to-exit',
             order: 9,
             isButton: false,
-            appendTo: 'wrapper',
+            appendTo: 'wrapper', // This places our event listener on the main wrapper of PhotoSwipe
             onInit: (el, pswp) => {
-                let startY = 0;
-                const touchSensitivity = 10; // Extremely low sensitivity for high responsiveness
-
-                const handleTouchStart = (event) => {
-                    if (event.touches.length === 1) { // Only initiate for single touch
-                        startY = event.touches[0].screenY;
-                        event.preventDefault(); // Prevent default to avoid scrolling background
+                // Use a more specific element if needed, or window for general scrolling
+                window.addEventListener('wheel', function(event) {
+                    var scrollSensitivity = 100; // Pixels scrolled triggering exit
+                    if (Math.abs(event.deltaY) > scrollSensitivity) {
+                        pswp.close(); // Close the gallery when the threshold is exceeded
                     }
-                };
-
-                const handleTouchMove = (event) => {
-                    if (event.touches.length === 1) {
-                        let moveY = event.touches[0].screenY;
-                        let diffY = moveY - startY;
-                        if (Math.abs(diffY) > touchSensitivity) {
-                            event.preventDefault(); // Prevent scrolling background
-                            pswp.close(); // Close the gallery if swipe is decisive
-                        }
-                    }
-                };
-
-                const enableTouchEvents = () => {
-                    window.removeEventListener('touchstart', handleTouchStart, { passive: false });
-                    window.removeEventListener('touchmove', handleTouchMove, { passive: false });
-                    // Delay re-enabling the scroll to prevent accidental page scroll
-                    setTimeout(() => {
-                        window.removeEventListener('wheel', handleScroll, { passive: false });
-                    }, 100);
-                };
-
-                const disableTouchEvents = () => {
-                    window.addEventListener('touchstart', handleTouchStart, { passive: false });
-                    window.addEventListener('touchmove', handleTouchMove, { passive: false });
-                    window.addEventListener('wheel', handleScroll, { passive: false });
-                };
-
-                const handleScroll = (event) => {
-                    event.preventDefault();
-                    if (Math.abs(event.deltaY) > touchSensitivity) {
-                        pswp.close();
-                    }
-                };
-
-                // Listen for opening and closing events to toggle scroll and touch behavior
-                pswp.on('openingAnimationStart', disableTouchEvents);
-                pswp.on('destroy', enableTouchEvents);
+                }, { passive: true });
             }
         });
     });
 </script>
-
-
-
-
 
 
 
@@ -380,7 +338,7 @@ html.sr .reveal {
                                         </a>
                                     </div>
                                     <div class="reveal">
-                                        <a href="assets/img/bg/img/img5.jpg" data-pswp-width="1000" data-pswp-height="1357" data-title="Image 5 description">
+                                        <a href="assets/img/bg/img/img5.jpg" data-pswp-width="1000" data-pswp-height="1500" data-title="Image 5 description">
                                             <img src="assets/img/bg/img/img5.jpg" alt="Image 4" style="width:100%">
                                         </a>
                                     </div>
@@ -424,7 +382,7 @@ html.sr .reveal {
                                         </a>
                                     </div>
                                     <div class="reveal">
-                                        <a href="assets/img/bg/img/img24.jpg" data-pswp-width="1000" data-pswp-height="578" data-title="Image 12 description">
+                                        <a href="assets/img/bg/img/img24.jpg" data-pswp-width="1500" data-pswp-height="1000" data-title="Image 12 description">
                                             <img src="assets/img/bg/img/img24.jpg" alt="Image 12" style="width:100%">
                                         </a>
                                     </div>

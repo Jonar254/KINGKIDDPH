@@ -74,7 +74,7 @@ html.sr .reveal {
             appendTo: 'wrapper',
             onInit: (el, pswp) => {
                 let startY = 0;
-                const touchSensitivity = 10; // Extremely low sensitivity for high responsiveness
+                const touchSensitivity = 30; // Lowered for higher sensitivity
 
                 const handleTouchStart = (event) => {
                     if (event.touches.length === 1) { // Only initiate for single touch
@@ -123,7 +123,6 @@ html.sr .reveal {
         });
     });
 </script>
-
 
 
 

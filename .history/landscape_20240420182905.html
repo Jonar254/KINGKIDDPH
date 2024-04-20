@@ -74,12 +74,12 @@ html.sr .reveal {
             appendTo: 'wrapper',
             onInit: (el, pswp) => {
                 let startY = 0;
-                const touchSensitivity = 10; // Extremely low sensitivity for high responsiveness
+                const touchSensitivity = 50; // Adjust this value based on your need
 
                 const handleTouchStart = (event) => {
                     if (event.touches.length === 1) { // Only initiate for single touch
                         startY = event.touches[0].screenY;
-                        event.preventDefault(); // Prevent default to avoid scrolling background
+                        event.preventDefault(); // Optionally prevent the default action to stop background scroll
                     }
                 };
 
@@ -97,18 +97,14 @@ html.sr .reveal {
                 const enableTouchEvents = () => {
                     window.removeEventListener('touchstart', handleTouchStart, { passive: false });
                     window.removeEventListener('touchmove', handleTouchMove, { passive: false });
-                    // Delay re-enabling the scroll to prevent accidental page scroll
-                    setTimeout(() => {
-                        window.removeEventListener('wheel', handleScroll, { passive: false });
-                    }, 100);
                 };
 
                 const disableTouchEvents = () => {
                     window.addEventListener('touchstart', handleTouchStart, { passive: false });
                     window.addEventListener('touchmove', handleTouchMove, { passive: false });
-                    window.addEventListener('wheel', handleScroll, { passive: false });
                 };
 
+                // Add wheel event listeners
                 const handleScroll = (event) => {
                     event.preventDefault();
                     if (Math.abs(event.deltaY) > touchSensitivity) {
@@ -116,14 +112,22 @@ html.sr .reveal {
                     }
                 };
 
+                const enableScroll = () => {
+                    window.removeEventListener('wheel', handleScroll, { passive: false });
+                    enableTouchEvents(); // Enable touch events when enabling scroll
+                };
+                const disableScroll = () => {
+                    window.addEventListener('wheel', handleScroll, { passive: false });
+                    disableTouchEvents(); // Disable touch events when disabling scroll
+                };
+
                 // Listen for opening and closing events to toggle scroll and touch behavior
-                pswp.on('openingAnimationStart', disableTouchEvents);
-                pswp.on('destroy', enableTouchEvents);
+                pswp.on('openingAnimationStart', disableScroll);
+                pswp.on('destroy', enableScroll);
             }
         });
     });
 </script>
-
 
 
 
