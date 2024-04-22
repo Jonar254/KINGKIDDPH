@@ -68,15 +68,14 @@
                 isButton: false,
                 appendTo: 'wrapper',
                 onInit: (el, pswp) => {
-                    let startY = 0, startX = 0;
-                    const touchSensitivity = 10; // Sensitivity for closing gesture
-                    const swipeThreshold = 30; // Sensitivity for discerning between X and Y axis movements
+                    let startY = 0;
+                    let startX = 0;
+                    const touchSensitivity = 50; // Increased sensitivity for more deliberate swipes
     
                     const handleTouchStart = (event) => {
-                        if (event.touches.length === 1) {
+                        if (event.touches.length === 1) { // Only initiate for single touch
                             startY = event.touches[0].screenY;
                             startX = event.touches[0].screenX;
-                            event.preventDefault();
                         }
                     };
     
@@ -87,10 +86,10 @@
                             let diffY = moveY - startY;
                             let diffX = moveX - startX;
     
-                            // Only close if the vertical movement exceeds the horizontal movement
+                            // Only trigger exit if the vertical movement is significantly greater than horizontal
                             if (Math.abs(diffY) > touchSensitivity && Math.abs(diffY) > Math.abs(diffX)) {
-                                event.preventDefault();
-                                pswp.close();
+                                event.preventDefault(); // Prevent scrolling background
+                                pswp.close(); // Close the gallery if swipe is decisive
                             }
                         }
                     };
@@ -98,22 +97,11 @@
                     const enableTouchEvents = () => {
                         window.removeEventListener('touchstart', handleTouchStart, { passive: false });
                         window.removeEventListener('touchmove', handleTouchMove, { passive: false });
-                        setTimeout(() => {
-                            window.removeEventListener('wheel', handleScroll, { passive: false });
-                        }, 100);
                     };
     
                     const disableTouchEvents = () => {
                         window.addEventListener('touchstart', handleTouchStart, { passive: false });
                         window.addEventListener('touchmove', handleTouchMove, { passive: false });
-                        window.addEventListener('wheel', handleScroll, { passive: false });
-                    };
-    
-                    const handleScroll = (event) => {
-                        event.preventDefault();
-                        if (Math.abs(event.deltaY) > touchSensitivity) {
-                            pswp.close();
-                        }
                     };
     
                     // Listen for opening and closing events to toggle scroll and touch behavior
@@ -123,6 +111,7 @@
             });
         });
     </script>
+    
     
   
     

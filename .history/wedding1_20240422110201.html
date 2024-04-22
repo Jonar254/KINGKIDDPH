@@ -48,7 +48,7 @@
       });
     });
   </script>
-     <script type="module">
+       <script type="module">
         import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe-lightbox.esm.min.js';
         import PhotoSwipe from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.esm.min.js';
     
@@ -68,15 +68,14 @@
                 isButton: false,
                 appendTo: 'wrapper',
                 onInit: (el, pswp) => {
-                    let startY = 0, startX = 0;
-                    const touchSensitivity = 10; // Sensitivity for closing gesture
-                    const swipeThreshold = 30; // Sensitivity for discerning between X and Y axis movements
+                    let startY = 0;
+                    let startX = 0;
+                    const touchSensitivity = 50; // Increased sensitivity for more deliberate swipes
     
                     const handleTouchStart = (event) => {
-                        if (event.touches.length === 1) {
+                        if (event.touches.length === 1) { // Only initiate for single touch
                             startY = event.touches[0].screenY;
                             startX = event.touches[0].screenX;
-                            event.preventDefault();
                         }
                     };
     
@@ -87,10 +86,10 @@
                             let diffY = moveY - startY;
                             let diffX = moveX - startX;
     
-                            // Only close if the vertical movement exceeds the horizontal movement
+                            // Only trigger exit if the vertical movement is significantly greater than horizontal
                             if (Math.abs(diffY) > touchSensitivity && Math.abs(diffY) > Math.abs(diffX)) {
-                                event.preventDefault();
-                                pswp.close();
+                                event.preventDefault(); // Prevent scrolling background
+                                pswp.close(); // Close the gallery if swipe is decisive
                             }
                         }
                     };
@@ -98,22 +97,11 @@
                     const enableTouchEvents = () => {
                         window.removeEventListener('touchstart', handleTouchStart, { passive: false });
                         window.removeEventListener('touchmove', handleTouchMove, { passive: false });
-                        setTimeout(() => {
-                            window.removeEventListener('wheel', handleScroll, { passive: false });
-                        }, 100);
                     };
     
                     const disableTouchEvents = () => {
                         window.addEventListener('touchstart', handleTouchStart, { passive: false });
                         window.addEventListener('touchmove', handleTouchMove, { passive: false });
-                        window.addEventListener('wheel', handleScroll, { passive: false });
-                    };
-    
-                    const handleScroll = (event) => {
-                        event.preventDefault();
-                        if (Math.abs(event.deltaY) > touchSensitivity) {
-                            pswp.close();
-                        }
                     };
     
                     // Listen for opening and closing events to toggle scroll and touch behavior
@@ -459,8 +447,8 @@
                         </div>
                         <div class="col-md-4 px-2 py-2">
                             <div class="work-item">
-                                <a href="assets/img/gallery/weddings/wedl7.jpg" data-pswp-width="1200" data-pswp-height="800">
-                                    <img src="assets/img/gallery/weddings/wedl7.jpg" alt="Wedding Image 6" style="width:100%;">
+                                <a href="assets/img/gallery/weddings/wedl7.jpg data-pswp-width="1200" data-pswp-height="800">
+                                    <img src="assets/img/gallery/weddings/wedl7.jpg alt="Wedding Image 6" style="width:100%;">
                                 </a>
                             </div>
                         </div>
@@ -473,46 +461,14 @@
                         </div>
                         <div class="col-md-4 px-2 py-2">
                             <div class="work-item">
-                                <a href="assets/img/gallery/weddings/wedl9.jpg" data-pswp-width="1200" data-pswp-height="800">
-                                    <img src="assets/img/gallery/weddings/wedl9.jpg" alt="Wedding Image 6" style="width:100%;">
+                                <a href="assets/img/gallery/weddings/wedl6.jpg" data-pswp-width="1200" data-pswp-height="800">
+                                    <img src="assets/img/gallery/weddings/wedl6.jpg" alt="Wedding Image 6" style="width:100%;">
                                 </a>
                             </div>
                         </div>
                         
                     </div>
                 </div>
-                <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="pswp__bg"></div>
-                    <div class="pswp__scroll-wrap">
-                        <div class="pswp__container">
-                            <div class="pswp__item"></div>
-                            <div class="pswp__item"></div>
-                            <div class="pswp__item"></div>
-                        </div>
-                        <div class="pswp__ui pswp__ui--hidden">
-                            <div class="pswp__top-bar">
-                                <div class="pswp__counter"></div>
-                                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                                <button class="pswp__button pswp__button--share" title="Share"></button>
-                                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                                <div class="pswp__preloader">
-                                    <div class="pswp__preloader__icn">
-                                        <div class="pswp__preloader__cut">
-                                            <div class="pswp__preloader__donut"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-                            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
-                            <div class="pswp__caption">
-                                <div class="pswp__caption__center"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
