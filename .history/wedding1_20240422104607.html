@@ -69,25 +69,20 @@
                 appendTo: 'wrapper',
                 onInit: (el, pswp) => {
                     let startY = 0;
-                    let startX = 0;
-                    const touchSensitivity = 50; // Increased sensitivity for more deliberate swipes
+                    const touchSensitivity = 10; // Extremely low sensitivity for high responsiveness
     
                     const handleTouchStart = (event) => {
                         if (event.touches.length === 1) { // Only initiate for single touch
                             startY = event.touches[0].screenY;
-                            startX = event.touches[0].screenX;
+                            event.preventDefault(); // Prevent default to avoid scrolling background
                         }
                     };
     
                     const handleTouchMove = (event) => {
                         if (event.touches.length === 1) {
                             let moveY = event.touches[0].screenY;
-                            let moveX = event.touches[0].screenX;
                             let diffY = moveY - startY;
-                            let diffX = moveX - startX;
-    
-                            // Only trigger exit if the vertical movement is significantly greater than horizontal
-                            if (Math.abs(diffY) > touchSensitivity && Math.abs(diffY) > Math.abs(diffX)) {
+                            if (Math.abs(diffY) > touchSensitivity) {
                                 event.preventDefault(); // Prevent scrolling background
                                 pswp.close(); // Close the gallery if swipe is decisive
                             }
@@ -97,11 +92,23 @@
                     const enableTouchEvents = () => {
                         window.removeEventListener('touchstart', handleTouchStart, { passive: false });
                         window.removeEventListener('touchmove', handleTouchMove, { passive: false });
+                        // Delay re-enabling the scroll to prevent accidental page scroll
+                        setTimeout(() => {
+                            window.removeEventListener('wheel', handleScroll, { passive: false });
+                        }, 100);
                     };
     
                     const disableTouchEvents = () => {
                         window.addEventListener('touchstart', handleTouchStart, { passive: false });
                         window.addEventListener('touchmove', handleTouchMove, { passive: false });
+                        window.addEventListener('wheel', handleScroll, { passive: false });
+                    };
+    
+                    const handleScroll = (event) => {
+                        event.preventDefault();
+                        if (Math.abs(event.deltaY) > touchSensitivity) {
+                            pswp.close();
+                        }
                     };
     
                     // Listen for opening and closing events to toggle scroll and touch behavior
@@ -111,7 +118,6 @@
             });
         });
     </script>
-    
   
     
 </head>
