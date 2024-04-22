@@ -47,77 +47,76 @@
         mobile: true,        // Ensures that the animations work on mobile devices
       });
     });
-  </script>
-        <script type="module">
-            import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe-lightbox.esm.min.js';
-            import PhotoSwipe from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.esm.min.js';
-        
-            const lightbox = new PhotoSwipeLightbox({
-                gallery: '#gallery--zoom-transition',
-                children: 'a',
-                bgOpacity: 0.9,
-                pswpModule: () => Promise.resolve(PhotoSwipe)
+    <script type="module">
+        import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe-lightbox.esm.min.js';
+        import PhotoSwipe from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.esm.min.js';
+    
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: '#gallery--zoom-transition',
+            children: 'a',
+            bgOpacity: 0.9,
+            pswpModule: () => Promise.resolve(PhotoSwipe)
+        });
+    
+        lightbox.init();
+    
+        lightbox.on('uiRegister', function () {
+            lightbox.pswp.ui.registerElement({
+                name: 'scroll-to-exit',
+                order: 9,
+                isButton: false,
+                appendTo: 'wrapper',
+                onInit: (el, pswp) => {
+                    let startY = 0;
+                    const touchSensitivity = 10; // Extremely low sensitivity for high responsiveness
+    
+                    const handleTouchStart = (event) => {
+                        if (event.touches.length === 1) { // Only initiate for single touch
+                            startY = event.touches[0].screenY;
+                            event.preventDefault(); // Prevent default to avoid scrolling background
+                        }
+                    };
+    
+                    const handleTouchMove = (event) => {
+                        if (event.touches.length === 1) {
+                            let moveY = event.touches[0].screenY;
+                            let diffY = moveY - startY;
+                            if (Math.abs(diffY) > touchSensitivity) {
+                                event.preventDefault(); // Prevent scrolling background
+                                pswp.close(); // Close the gallery if swipe is decisive
+                            }
+                        }
+                    };
+    
+                    const enableTouchEvents = () => {
+                        window.removeEventListener('touchstart', handleTouchStart, { passive: false });
+                        window.removeEventListener('touchmove', handleTouchMove, { passive: false });
+                        // Delay re-enabling the scroll to prevent accidental page scroll
+                        setTimeout(() => {
+                            window.removeEventListener('wheel', handleScroll, { passive: false });
+                        }, 100);
+                    };
+    
+                    const disableTouchEvents = () => {
+                        window.addEventListener('touchstart', handleTouchStart, { passive: false });
+                        window.addEventListener('touchmove', handleTouchMove, { passive: false });
+                        window.addEventListener('wheel', handleScroll, { passive: false });
+                    };
+    
+                    const handleScroll = (event) => {
+                        event.preventDefault();
+                        if (Math.abs(event.deltaY) > touchSensitivity) {
+                            pswp.close();
+                        }
+                    };
+    
+                    // Listen for opening and closing events to toggle scroll and touch behavior
+                    pswp.on('openingAnimationStart', disableTouchEvents);
+                    pswp.on('destroy', enableTouchEvents);
+                }
             });
-        
-            lightbox.init();
-        
-            lightbox.on('uiRegister', function () {
-                lightbox.pswp.ui.registerElement({
-                    name: 'scroll-to-exit',
-                    order: 9,
-                    isButton: false,
-                    appendTo: 'wrapper',
-                    onInit: (el, pswp) => {
-                        let startY = 0;
-                        const touchSensitivity = 10; // Extremely low sensitivity for high responsiveness
-        
-                        const handleTouchStart = (event) => {
-                            if (event.touches.length === 1) { // Only initiate for single touch
-                                startY = event.touches[0].screenY;
-                                event.preventDefault(); // Prevent default to avoid scrolling background
-                            }
-                        };
-        
-                        const handleTouchMove = (event) => {
-                            if (event.touches.length === 1) {
-                                let moveY = event.touches[0].screenY;
-                                let diffY = moveY - startY;
-                                if (Math.abs(diffY) > touchSensitivity) {
-                                    event.preventDefault(); // Prevent scrolling background
-                                    pswp.close(); // Close the gallery if swipe is decisive
-                                }
-                            }
-                        };
-        
-                        const enableTouchEvents = () => {
-                            window.removeEventListener('touchstart', handleTouchStart, { passive: false });
-                            window.removeEventListener('touchmove', handleTouchMove, { passive: false });
-                            // Delay re-enabling the scroll to prevent accidental page scroll
-                            setTimeout(() => {
-                                window.removeEventListener('wheel', handleScroll, { passive: false });
-                            }, 100);
-                        };
-        
-                        const disableTouchEvents = () => {
-                            window.addEventListener('touchstart', handleTouchStart, { passive: false });
-                            window.addEventListener('touchmove', handleTouchMove, { passive: false });
-                            window.addEventListener('wheel', handleScroll, { passive: false });
-                        };
-        
-                        const handleScroll = (event) => {
-                            event.preventDefault();
-                            if (Math.abs(event.deltaY) > touchSensitivity) {
-                                pswp.close();
-                            }
-                        };
-        
-                        // Listen for opening and closing events to toggle scroll and touch behavior
-                        pswp.on('openingAnimationStart', disableTouchEvents);
-                        pswp.on('destroy', enableTouchEvents);
-                    }
-                });
-            });
-        </script>
+        });
+    </script>
   
 </head>
 

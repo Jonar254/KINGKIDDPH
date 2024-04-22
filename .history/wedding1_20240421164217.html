@@ -25,100 +25,7 @@
     <link rel="stylesheet" href="assets/css/odometer.css">
     <link rel="stylesheet" href="assets/css/default.css">
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/scrollreveal.min.js"></script>
-<style>
-    html.sr .reveal {
-    visibility: hidden;
-}
-
-</style>
-
-<!-- Include PhotoSwipe's core CSS and default skin -->
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.min.css" integrity="sha512-LFWtdAXHQuwUGH9cImO9blA3a3GfQNkpF2uRlhaOpSbDevNyK1rmAjs13mtpjvWyi+flP7zYWboqY+8Mkd42xA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-      ScrollReveal().reveal('.reveal', {
-        duration: 1000,      // Duration of the animation
-        easing: 'ease-in-out', // Easing for a smooth animation
-        viewFactor: 0.3,     // Percentage of the element that must be within the viewport
-        mobile: true,        // Ensures that the animations work on mobile devices
-      });
-    });
-  </script>
-       <script type="module">
-        import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe-lightbox.esm.min.js';
-        import PhotoSwipe from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.esm.min.js';
     
-        const lightbox = new PhotoSwipeLightbox({
-            gallery: '#gallery--zoom-transition',
-            children: 'a',
-            bgOpacity: 0.9,
-            pswpModule: () => Promise.resolve(PhotoSwipe)
-        });
-    
-        lightbox.init();
-    
-        lightbox.on('uiRegister', function () {
-            lightbox.pswp.ui.registerElement({
-                name: 'scroll-to-exit',
-                order: 9,
-                isButton: false,
-                appendTo: 'wrapper',
-                onInit: (el, pswp) => {
-                    let startY = 0;
-                    const touchSensitivity = 10; // Extremely low sensitivity for high responsiveness
-    
-                    const handleTouchStart = (event) => {
-                        if (event.touches.length === 1) { // Only initiate for single touch
-                            startY = event.touches[0].screenY;
-                            event.preventDefault(); // Prevent default to avoid scrolling background
-                        }
-                    };
-    
-                    const handleTouchMove = (event) => {
-                        if (event.touches.length === 1) {
-                            let moveY = event.touches[0].screenY;
-                            let diffY = moveY - startY;
-                            if (Math.abs(diffY) > touchSensitivity) {
-                                event.preventDefault(); // Prevent scrolling background
-                                pswp.close(); // Close the gallery if swipe is decisive
-                            }
-                        }
-                    };
-    
-                    const enableTouchEvents = () => {
-                        window.removeEventListener('touchstart', handleTouchStart, { passive: false });
-                        window.removeEventListener('touchmove', handleTouchMove, { passive: false });
-                        // Delay re-enabling the scroll to prevent accidental page scroll
-                        setTimeout(() => {
-                            window.removeEventListener('wheel', handleScroll, { passive: false });
-                        }, 100);
-                    };
-    
-                    const disableTouchEvents = () => {
-                        window.addEventListener('touchstart', handleTouchStart, { passive: false });
-                        window.addEventListener('touchmove', handleTouchMove, { passive: false });
-                        window.addEventListener('wheel', handleScroll, { passive: false });
-                    };
-    
-                    const handleScroll = (event) => {
-                        event.preventDefault();
-                        if (Math.abs(event.deltaY) > touchSensitivity) {
-                            pswp.close();
-                        }
-                    };
-    
-                    // Listen for opening and closing events to toggle scroll and touch behavior
-                    pswp.on('openingAnimationStart', disableTouchEvents);
-                    pswp.on('destroy', enableTouchEvents);
-                }
-            });
-        });
-    </script>
-  
     
 </head>
 
@@ -355,70 +262,53 @@
         </div>
     </div>
    
- <section class="custom-featured-works-area section-below p-relative fix">
+    <section class="custom-featured-works-area section-below p-relative fix">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="row gy-2" id="gallery--zoom-transition"> 
-                       
-                        <div class="col-md-4 px-2 py-2"> 
-                            <div class="work-item">
-                                <a href="assets/img/gallery/weddings/hap (1).webp" data-pswp-width="1200" data-pswp-height="800">
-                                    <img src="assets/img/gallery/weddings/hap (1).webp" alt="Wedding Image 1" style="width:100%;">
-                                </a>
+                    <div class="row gy-3"> <!-- Added gy-3 for vertical gap -->
+                        <!-- Image 1 -->
+                        <div class="col-md-4"> <!-- Changed col-md-6 to col-md-4 -->
+                            <div class="work-item py-3"> <!-- Added py-3 for vertical padding -->
+                                <img src="assets/img/gallery/weddings/hap (1).webp" alt="Video Thumbnail">
                             </div>
                         </div>
-                       
-                        <div class="col-md-4 px-2 py-2">
-                            <div class="work-item">
-                                <a href="assets/img/gallery/weddings/hap (2).webp" data-pswp-width="1200" data-pswp-height="800">
-                                    <img src="assets/img/gallery/weddings/hap (2).webp" alt="Wedding Image 2" style="width:100%;">
-                                </a>
+                        <!-- Image 2 -->
+                        <div class="col-md-4"> <!-- Changed col-md-6 to col-md-4 -->
+                            <div class="work-item py-3"> <!-- Added py-3 for vertical padding -->
+                                <img src="assets/img/gallery/weddings/hap (2).webp" alt="Video Thumbnail">
                             </div>
                         </div>
-                        
-                        <div class="col-md-4 px-2 py-2">
-                            <div class="work-item">
-                                <a href="assets/img/gallery/weddings/hap (3).webp" data-pswp-width="1200" data-pswp-height="800">
-                                    <img src="assets/img/gallery/weddings/hap (3).webp" alt="Wedding Image 3" style="width:100%;">
-                                </a>
+                        <!-- Image 3 -->
+                        <div class="col-md-4"> <!-- Changed col-md-6 to col-md-4 -->
+                            <div class="work-item py-3"> <!-- Added py-3 for vertical padding -->
+                                <img src="assets/img/gallery/weddings/hap (3).webp" alt="Video Thumbnail">
                             </div>
                         </div>
-                       
-                        <div class="col-md-4 px-2 py-2">
-                            <div class="work-item">
-                                <a href="assets/img/gallery/weddings/hap (4).webp" data-pswp-width="1200" data-pswp-height="800">
-                                    <img src="assets/img/gallery/weddings/hap (4).webp" alt="Wedding Image 4" style="width:100%;">
-                                </a>
+                        <!-- Image 4 -->
+                        <div class="col-md-4"> <!-- Changed col-md-6 to col-md-4 -->
+                            <div class="work-item py-3"> <!-- Added py-3 for vertical padding -->
+                                <img src="assets/img/gallery/weddings/hap (4).webp" alt="Video Thumbnail">
                             </div>
                         </div>
-                       
-                        <div class="col-md-4 px-2 py-2">
-                            <div class="work-item">
-                                <a href="assets/img/gallery/weddings/hap (5).webp" data-pswp-width="1200" data-pswp-height="800">
-                                    <img src="assets/img/gallery/weddings/hap (5).webp" alt="Wedding Image 5" style="width:100%;">
-                                </a>
-                            </div>
-                        </div> 
-                        
-                        <div class="col-md-4 px-2 py-2">
-                            <div class="work-item">
-                                <a href="assets/img/gallery/weddings/hap (6).webp" data-pswp-width="1200" data-pswp-height="800">
-                                    <img src="assets/img/gallery/weddings/hap (6).webp" alt="Wedding Image 6" style="width:100%;">
-                                </a>
+                        <!-- Image 5 -->
+                        <div class="col-md-4"> <!-- Changed col-md-6 to col-md-4 -->
+                            <div class="work-item py-3"> <!-- Added py-3 for vertical padding -->
+                                <img src="assets/img/gallery/weddings/hap (5).webp" alt="Video Thumbnail">
                             </div>
                         </div>
-                        
+                        <!-- Image 6 -->
+                        <div class="col-md-4"> <!-- Changed col-md-6 to col-md-4 -->
+                            <div class="work-item py-3"> <!-- Added py-3 for vertical padding -->
+                                <img src="assets/img/gallery/weddings/hap (6).webp" alt="Video Thumbnail">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    
-
-      
-              
     
      <!-- about area start  -->
      <div class="about-area section-spacing p-relative">
