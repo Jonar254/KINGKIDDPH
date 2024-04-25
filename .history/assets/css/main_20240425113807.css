@@ -17976,7 +17976,7 @@ label {
 .ax-loader-wrap {
   overflow: hidden;
   height: 100%;
-  background-color: rgb(20,20,20);
+  background-color:rgb(20,20,20);
   z-index: 1000;
   position: relative;
 }
