@@ -30,6 +30,12 @@
         html.sr .reveal {
             visibility: hidden;
         }
+        video {
+            /* Adjust these as needed to fit the video in your desired area */
+            width: 50%; 
+            height: auto;
+            max-width: 100px; /* Maximum size of the video */
+        }
         </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -121,16 +127,11 @@
     <div class="ax-loader-wrap" id="ax-loader-wrap">
         <div class="ax-loader-inner">
             
-            <div class="ax-loader">
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-            </div>
+            <video loop autoplay muted>
+             
+                <source src="assets/loader.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
     <!-- preloader end -->

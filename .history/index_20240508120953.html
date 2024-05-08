@@ -30,6 +30,7 @@
         html.sr .reveal {
             visibility: hidden;
         }
+       
         </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -121,16 +122,11 @@
     <div class="ax-loader-wrap" id="ax-loader-wrap">
         <div class="ax-loader-inner">
             
-            <div class="ax-loader">
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-                <span class="ax-loader-item"></span>
-            </div>
+            <video loop autoplay muted>
+             
+                <source src="assets/loader.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
     <!-- preloader end -->
