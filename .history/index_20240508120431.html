@@ -30,12 +30,6 @@
         html.sr .reveal {
             visibility: hidden;
         }
-        video {
-            /* Adjust these as needed to fit the video in your desired area */
-            width: 50%; 
-            height: auto;
-            max-width: 100px; /* Maximum size of the video */
-        }
         </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -128,8 +122,8 @@
         <div class="ax-loader-inner">
             
             <video loop autoplay muted>
-             
-                <source src="assets/loader.mp4" type="video/mp4">
+                <!-- 'loop' makes the video replay automatically, 'autoplay' starts it immediately on load, 'muted' is often required for autoplay to work in modern browsers -->
+                <source src="path_to_your_video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
