@@ -1,0 +1,52 @@
+.custom-featured-works-area {
+    position: relative; /* This will make the gallery position itself relative to this container */
+}
+
+/* Style rows and center them */
+.cust-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the columns in the row */
+    padding: 0 4px;
+    margin: 0 auto; /* Center the row itself if needed */
+}
+
+/* Set column width for larger screens to be slightly less than one-third */
+.cust-column {
+    flex: 29%; /* Each image container now takes slightly less than one-third of the row's width */
+    max-width: 29%;
+    padding: 0 4px;
+    box-sizing: border-box; /* Includes padding in the width calculation */
+}
+
+/* Adjust column settings for medium screens */
+@media screen and (max-width: 800px) {
+    .cust-column {
+        flex: 50%; /* Show two images per row */
+        max-width: 50%;
+    }
+}
+
+/* Adjust column settings for smaller screens */
+@media screen and (max-width: 600px) {
+    .cust-column {
+        flex: 100%; /* Stack images vertically on very small devices */
+        max-width: 100%;
+    }
+}
+
+/* Style the images inside columns */
+.cust-column img {
+    vertical-align: middle;
+    width: 100%; /* Image width is responsive to the column width */
+    margin-top: 8px; /* Vertical spacing between images */
+    transition: 0.3s; /* Smooth transition for other properties */
+    cursor: pointer; /* Indicates an interactive item */
+    padding: 5px; /* Adds padding around images */
+}
+
+/* Style for specific image component in a photo viewer */
+.pswp__img {
+    transition: none; /* Disable transitions that might affect image scaling */
+}
+

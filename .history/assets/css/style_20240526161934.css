@@ -1,0 +1,70 @@
+.custom-featured-works-area {
+    position: relative; /* This will make the gallery position itself relative to this container */
+}
+
+/* Style rows and center them */
+.cust-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the columns in the row */
+    padding: 0 4px;
+    margin: 0 auto; /* Center the row itself if needed */
+}
+
+/* Set column width for all */
+.cust-column {
+    flex: 33.33%; /* Default setup for three columns */
+    max-width: 33.33%;
+    padding: 0 4px; /* Maintain original padding */
+    box-sizing: border-box; /* Includes padding in the width calculation */
+}
+
+/* Default style for all image links */
+.cust-column a {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px; /* spacing between images */
+}
+
+/* Increase the size of landscape image containers */
+.cust-column a[data-pswp-width="1200"][data-pswp-height="800"] {
+    width: calc(100% + 20px); /* Slightly larger than full width to emphasize */
+    margin-left: -10px; /* Adjust positioning to center the enlarged image */
+    margin-right: -10px;
+    box-sizing: border-box;
+}
+
+/* Style adjustments for images within the links */
+.cust-column img {
+    width: 100%;
+    display: block;
+    transition: 0.3s; /* Smooth transition for visual effects */
+}
+
+/* Ensuring the portrait images are not affected */
+.cust-column a[data-pswp-width="1000"][data-pswp-height="1500"],
+.cust-column a[data-pswp-width="1000"][data-pswp-height="1200"],
+.cust-column a[data-pswp-width="1000"][data-pswp-height="1300"] {
+    /* Keep the default settings or make specific adjustments if necessary */
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 800px) {
+    .cust-column {
+        flex: 50%; /* Show two images per row */
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .cust-column {
+        flex: 100%; /* Stack images vertically on very small devices */
+        max-width: 100%;
+    }
+}
+
+/* Style for specific image component in a photo viewer */
+.pswp__img {
+    transition: none; /* Disable transitions that might affect image scaling */
+}
+
