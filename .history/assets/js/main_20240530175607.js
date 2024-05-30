@@ -63,6 +63,22 @@
 ****************************************************/
 //IMPORTANT!!
 // script.js
+document.addEventListener('DOMContentLoaded', function() {
+	 Disable right-click
+	document.addEventListener('contextmenu', function(e) {
+	  e.preventDefault();
+	});
+	
+	
+	/* Prevent F12 key
+	document.addEventListener('keydown', function(e) {
+	  if (e.key === 'F12') {
+		e.preventDefault();
+	  }
+	});
+	*/
+});
+
 
 
 function playVideo(videoId, autoplay = false) {
@@ -119,7 +135,7 @@ function updatePreviousNextButtons(videoId) {
 
 document.addEventListener("DOMContentLoaded", function() {
     // Play the first video by default with autoplay
-    playVideo('UenPL-E9KFM', true);
+    playVideo('z8JezU_45rY', true);
 
     // Get all video containers in the masonry grid
     var videoContainers = document.querySelectorAll(".masonry-holder .video-container");

@@ -75,8 +75,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		e.preventDefault();
 	  }
 	});
-  });
-  
+});
+
+
 
 
 function playVideo(videoId, autoplay = false) {
@@ -133,7 +134,7 @@ function updatePreviousNextButtons(videoId) {
 
 document.addEventListener("DOMContentLoaded", function() {
     // Play the first video by default with autoplay
-    playVideo('UenPL-E9KFM', true);
+    playVideo('z8JezU_45rY', true);
 
     // Get all video containers in the masonry grid
     var videoContainers = document.querySelectorAll(".masonry-holder .video-container");
