@@ -63,6 +63,19 @@
 ****************************************************/
 //IMPORTANT!!
 // script.js
+document.addEventListener('DOMContentLoaded', function() {
+	// Disable right-click
+	document.addEventListener('contextmenu', function(e) {
+	  e.preventDefault();
+	});
+	
+	// Prevent F12 key
+	document.addEventListener('keydown', function(e) {
+	  if (e.key === 'F12') {
+		e.preventDefault();
+	  }
+	});
+});
 
 
 
