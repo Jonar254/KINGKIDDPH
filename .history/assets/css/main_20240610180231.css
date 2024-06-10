@@ -58,14 +58,14 @@
 @import url('https://fonts.googleapis.com/css2?family=GFS+Didot&family=Luxurious+Roman&family=Marcellus&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&amp;family=Tenor+Sans&amp;display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 
 :root {
     /**
   @font-family declaration
   */
-  --tpl-ff-heading: 'Lato', sans-serif;
-  --tpl-ff-body: 'Lato', sans-serif;
+  --tpl-ff-heading: 'Archivo', sans-serif;
+  --tpl-ff-body: 'Tenor Sans', sans-serif;
   --tpl-ff-fontawesome: 'Font Awesome 6 Pro';
   --tpl-ff-handwriting: 'autographyregular';
   /**
