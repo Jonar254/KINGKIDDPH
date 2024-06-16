@@ -9376,7 +9376,10 @@ body {
   color: var(--clr-common-white); /* or any other color you prefer */
 }
 /* Style for disabled options */
-
+.select-box select option[disabled] {
+  color: #f4f4f4; /* or any other color you prefer */
+  text-align: left; /* Align text to the left */
+}
 /* Style for the custom drop-down indicator */
 .select-box::after {
   content: "\25BE"; /* Unicode for down arrow */

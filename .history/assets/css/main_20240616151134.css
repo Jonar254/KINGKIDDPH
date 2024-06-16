@@ -9387,6 +9387,11 @@ body {
   color: var(--clr-common-white); /* Color of the arrow */
   pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select box */
 }
+/* Hide the default date picker arrow */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
 
 /*----------------------------------------
 	35. services css

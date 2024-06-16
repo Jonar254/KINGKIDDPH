@@ -9371,10 +9371,10 @@ body {
 .select-box select:not([value=""]):valid + :before {
   display: none;
 }
-/* Change placeholder text color for all input fields */
+/* Change placeholder text color for all input fields 
 ::placeholder {
   color: var(--clr-common-white); /* or any other color you prefer */
-}
+}*/
 /* Style for disabled options */
 
 /* Style for the custom drop-down indicator */
@@ -9387,6 +9387,7 @@ body {
   color: var(--clr-common-white); /* Color of the arrow */
   pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select box */
 }
+
 
 /*----------------------------------------
 	35. services css

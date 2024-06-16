@@ -9387,6 +9387,19 @@ body {
   color: var(--clr-common-white); /* Color of the arrow */
   pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select box */
 }
+/* Hide the default date picker arrow */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+/* Style the input to create a custom icon */
+.contact-input input[type="date"] {
+  padding-right: 30px; /* Add space for the icon */
+  background-image: url('path_to_your_calendar_icon.svg'); /* Replace with your icon */
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 20px 20px; /* Adjust the size of your icon */
+}
 
 /*----------------------------------------
 	35. services css

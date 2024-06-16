@@ -9387,6 +9387,15 @@ body {
   color: var(--clr-common-white); /* Color of the arrow */
   pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select box */
 }
+.input-box input[type="date"] {
+  height: 40px;
+  padding: 0 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
+}
 
 /*----------------------------------------
 	35. services css

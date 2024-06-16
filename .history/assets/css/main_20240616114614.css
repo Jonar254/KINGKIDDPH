@@ -9227,7 +9227,7 @@ body {
 
 .contact-form {
   padding: 60px 60px;
-  background: var(--clr-theme-1);
+  background: var(--clr-common-white);
   margin-left: 30px;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px), only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -9248,7 +9248,7 @@ body {
   width: 100%;
   font-size: 14px;
   border: 0;
-  border-bottom: 1px solid var(--clr-common-white);
+  border-bottom: 1px solid #414141;
   outline: none;
   background: transparent;
   color: var(--clr-common-white);
@@ -9279,7 +9279,7 @@ body {
   color: var(--clr-common-white);
 }
 .contact-btn .input-btn:hover {
-  border-color: var(--clr-theme-2);
+  border-color: #;
 }
 
 .e-check-input {
@@ -9328,64 +9328,6 @@ body {
   width: 100%;
   position: relative;
   top: 10px;
-}
-
-/* Styles for the dropdown */
-.select-box {
-  position: relative;
-  height: 60px;
-  width: 100%;
-  border-bottom: 1px solid var(--clr-common-white);
-}
-
-.select-box select {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  border: 0;
-  font-size: 14px;
-  color: var(--clr-common-white);
-  background: transparent;
-  padding: 0 15px;
-  appearance: none;
-}
-
-.select-box select option {
-  background: var(--clr-theme-1);
-  color: var(--clr-common-white);
-}
-
-.select-box:before {
-  content: attr(placeholder);
-  position: absolute;
-  top: 0;
-  left: 15px;
-  height: 60px;
-  line-height: 60px;
-  color: var(--clr-common-white);
-  font-size: 14px;
-  pointer-events: none;
-}
-
-.select-box select:focus + :before,
-.select-box select:not([value=""]):valid + :before {
-  display: none;
-}
-/* Change placeholder text color for all input fields */
-::placeholder {
-  color: var(--clr-common-white); /* or any other color you prefer */
-}
-/* Style for disabled options */
-
-/* Style for the custom drop-down indicator */
-.select-box::after {
-  content: "\25BE"; /* Unicode for down arrow */
-  position: absolute;
-  top: calc(50% - 10px); /* Vertically center the arrow */
-  right: 15px; /* Position the arrow on the right side */
-  font-size: 16px; /* Adjust the size of the arrow */
-  color: var(--clr-common-white); /* Color of the arrow */
-  pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select box */
 }
 
 /*----------------------------------------

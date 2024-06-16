@@ -9281,7 +9281,28 @@ body {
 .contact-btn .input-btn:hover {
   border-color: var(--clr-theme-2);
 }
-
+.form .input-box {
+  width: 100%;
+  margin-top: 20px;
+}
+.input-box label {
+  color: #333;
+}
+.form :where(.input-box input, .select-box) {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+}
+.input-box input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
 .e-check-input {
   margin: 0;
   appearance: none;
@@ -9328,64 +9349,6 @@ body {
   width: 100%;
   position: relative;
   top: 10px;
-}
-
-/* Styles for the dropdown */
-.select-box {
-  position: relative;
-  height: 60px;
-  width: 100%;
-  border-bottom: 1px solid var(--clr-common-white);
-}
-
-.select-box select {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  border: 0;
-  font-size: 14px;
-  color: var(--clr-common-white);
-  background: transparent;
-  padding: 0 15px;
-  appearance: none;
-}
-
-.select-box select option {
-  background: var(--clr-theme-1);
-  color: var(--clr-common-white);
-}
-
-.select-box:before {
-  content: attr(placeholder);
-  position: absolute;
-  top: 0;
-  left: 15px;
-  height: 60px;
-  line-height: 60px;
-  color: var(--clr-common-white);
-  font-size: 14px;
-  pointer-events: none;
-}
-
-.select-box select:focus + :before,
-.select-box select:not([value=""]):valid + :before {
-  display: none;
-}
-/* Change placeholder text color for all input fields */
-::placeholder {
-  color: var(--clr-common-white); /* or any other color you prefer */
-}
-/* Style for disabled options */
-
-/* Style for the custom drop-down indicator */
-.select-box::after {
-  content: "\25BE"; /* Unicode for down arrow */
-  position: absolute;
-  top: calc(50% - 10px); /* Vertically center the arrow */
-  right: 15px; /* Position the arrow on the right side */
-  font-size: 16px; /* Adjust the size of the arrow */
-  color: var(--clr-common-white); /* Color of the arrow */
-  pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select box */
 }
 
 /*----------------------------------------

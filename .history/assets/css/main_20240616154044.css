@@ -9371,10 +9371,10 @@ body {
 .select-box select:not([value=""]):valid + :before {
   display: none;
 }
-/* Change placeholder text color for all input fields */
+/* Change placeholder text color for all input fields 
 ::placeholder {
-  color: var(--clr-common-white); /* or any other color you prefer */
-}
+  color: var(--clr-common-white); 
+}*/
 /* Style for disabled options */
 
 /* Style for the custom drop-down indicator */
@@ -9387,6 +9387,22 @@ body {
   color: var(--clr-common-white); /* Color of the arrow */
   pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select box */
 }
+/* Adjust the size of the label */
+.select-box label {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Adjust the size of the select box */
+.select-box select {
+  height: 40px; /* Match the height of other input fields */
+  font-size: 16px; /* Match the font size of other input fields */
+  border: 1px solid #ccc; /* Match the border of other input fields */
+  border-radius: 5px; /* Match the border radius of other input fields */
+  background-color: #f9f9f9; /* Match the background color of other input fields */
+  color: #333; /* Match the text color of other input fields */
+}
+
 
 /*----------------------------------------
 	35. services css

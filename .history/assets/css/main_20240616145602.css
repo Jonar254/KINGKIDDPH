@@ -9373,21 +9373,12 @@ body {
 }
 /* Change placeholder text color for all input fields */
 ::placeholder {
-  color: var(--clr-common-white); /* or any other color you prefer */
+  color: #f4f4f4bf; /* or any other color you prefer */
 }
-/* Style for disabled options */
-
-/* Style for the custom drop-down indicator */
-.select-box::after {
-  content: "\25BE"; /* Unicode for down arrow */
-  position: absolute;
-  top: calc(50% - 10px); /* Vertically center the arrow */
-  right: 15px; /* Position the arrow on the right side */
-  font-size: 16px; /* Adjust the size of the arrow */
-  color: var(--clr-common-white); /* Color of the arrow */
-  pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select box */
+/* Change placeholder text color */
+.select-box select::placeholder {
+  color: white; /* or #f4f4f4 */
 }
-
 /*----------------------------------------
 	35. services css
 ----------------------------------------*/
