@@ -9398,7 +9398,7 @@ body {
   background: transparent;
   color: var(--clr-common-white);
   padding-right: 30px; /* Add space for the calendar icon */
- 
+  -webkit-appearance: none; /* Remove default arrow on iOS */
 }
 
 
