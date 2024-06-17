@@ -538,7 +538,7 @@ function playVideo(videoId) {
 		dots: false,
 		arrows: false,
 		infinite: true,
-		speed: 1000,
+		speed: 5000,
 		autoplay: true,
 		slidesToShow: 5,
 		draggable: true,
