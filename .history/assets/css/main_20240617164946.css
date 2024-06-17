@@ -3306,7 +3306,7 @@ body.mfp-content {
 }
 .input-btn:hover {
   color: var(--clr-common-white);
-  background: #141414;
+  background: #563e3e;
   border-color: var(--clr-theme-2);
 }
 .input-btn:hover .btn-icon i {
@@ -9355,7 +9355,17 @@ only screen and (min-width: 576px) and (max-width: 767px) {
   pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select box */
 }
 
+.contact-input input:focus,
+.contact-input textarea:focus,
+.contact-input select:focus {
+  border-color: var(--clr-primary);
+}
 
+.contact-input input:hover,
+.contact-input textarea:hover,
+.contact-input select:hover {
+  border-color: var(--clr-primary); /* Change this to the desired hover color */
+}
 /*----------------------------------------
 	35. services css
 ----------------------------------------*/
