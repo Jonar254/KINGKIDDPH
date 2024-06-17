@@ -9338,21 +9338,8 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 .contact-input input::placeholder,
 .contact-input textarea::placeholder,
 .contact-input select::placeholder {
-  color: #f4f4f49c; /* Change placeholder color to white or #f4f4f4 */
+  color: #f4f4f4c1; /* Change placeholder color to white or #f4f4f4 */
 }
-/* Adjust date input size */
-.contact-input input[type="date"] {
-  padding: 15px; /* Adjust padding to fit the date in the box */
-  font-size: 14px; /* Adjust font size to fit the date in the box */
-}
-
-.contact-input textarea {
-  height: 120px; /* Increase the height to 120px or adjust as needed */
-  resize: none; /* Disable textarea resizing */
-  padding-top: 15px; /* Add padding to the top of the textarea */
-  padding-bottom: 15px; /* Add padding to the bottom of the textarea */
-}
-
 
 .e-check-input {
   margin: 0;

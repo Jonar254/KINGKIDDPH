@@ -9352,6 +9352,10 @@ only screen and (min-width: 576px) and (max-width: 767px) {
   padding-top: 15px; /* Add padding to the top of the textarea */
   padding-bottom: 15px; /* Add padding to the bottom of the textarea */
 }
+/* Change color of "Choose service" option */
+.select-box select option[value=""] {
+  color: #999; /* Change the color to gray (#999) or any other color you prefer */
+}
 
 
 .e-check-input {
