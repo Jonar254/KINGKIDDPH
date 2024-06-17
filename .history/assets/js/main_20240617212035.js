@@ -538,12 +538,10 @@ function playVideo(videoId) {
 		dots: false,
 		arrows: false,
 		infinite: true,
-		speed: 5000, // Adjust speed as needed
+		speed: 5000,
 		autoplay: true,
-		autoplaySpeed: 0, // Set autoplaySpeed to 0
 		slidesToShow: 5,
 		draggable: true,
-		cssEase: 'linear', // Use linear animation for smooth scrolling
 		responsive: [
 			{
 				breakpoint: 1400,
@@ -584,15 +582,13 @@ function playVideo(videoId) {
 		],
 	});
 	
-	// Function to continuously scroll the slides
-	function scrollSlider() {
-		$('.brand-active').slick('slickNext');
-		requestAnimationFrame(scrollSlider);
-	}
-	
-	// Call the scrollSlider function initially to start continuous scrolling
-	scrollSlider();
-	
+// Function to continuously scroll the slides
+function scrollSlider() {
+    $('.brand-active').slick('slickNext');
+    requestAnimationFrame(scrollSlider);
+}
+
+ scrollSlider() ;
 
 	/*======================================
 	15.1. brand activation 
