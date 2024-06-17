@@ -9286,14 +9286,6 @@ only screen and (min-width: 576px) and (max-width: 767px) {
   appearance: none;
   background-color: transparent;
   color: var(--clr-common-white);
-  height: 60px;
-  width: 100%;
-  font-size: 14px;
-  border: 1px solid var(--clr-common-white);
-  border-radius: 4px;
-  outline: none;
-  padding: 10px;
-  box-sizing: border-box;
 }
 
 .contact-input input[type="date"]::-webkit-calendar-picker-indicator {
@@ -9302,10 +9294,10 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 }
 
 .contact-input textarea {
-  height: 120px; /* Increase the height to 120px or adjust as needed */
-  resize: none; /* Disable textarea resizing */
-  padding-top: 15px; /* Add padding to the top of the textarea */
-  padding-bottom: 15px; /* Add padding to the bottom of the textarea */
+  height: 80px;
+  resize: none;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .contact-input label {
@@ -9336,6 +9328,11 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 .contact-btn .input-btn:hover {
   border-color: var(--clr-theme-2);
 }
+/* Adjust date input size */
+.contact-input input[type="date"] {
+  padding: 15px; /* Adjust padding to fit the date in the box */
+  font-size: 14px; /* Adjust font size to fit the date in the box */
+}
 
 /* Change placeholder color for all input fields */
 .contact-input input::placeholder,
@@ -9343,24 +9340,13 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 .contact-input select::placeholder {
   color: #f4f4f49c; /* Change placeholder color to white or #f4f4f4 */
 }
-
-/* Style for the custom drop-down indicator */
-.select-box::after {
-  content: "\25BE"; /* Unicode for down arrow */
-  position: absolute;
-  top: calc(50% - 10px); /* Vertically center the arrow */
-  right: 15px; /* Position the arrow on the right side */
-  font-size: 16px; /* Adjust the size of the arrow */
-  color: var(--clr-common-white); /* Color of the arrow */
-  pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select box */
+/* Adjust date input size */
+.contact-input input[type="date"] {
+  padding: 15px; /* Adjust padding to fit the date in the box */
+  font-size: 14px; /* Adjust font size to fit the date in the box */
 }
 
-.contact-btn .input-btn {
-  color: var(--clr-common-white);
-}
-.contact-btn .input-btn:hover {
-  border-color: var(--clr-theme-2);
-}
+
 
 .e-check-input {
   margin: 0;
@@ -9456,6 +9442,30 @@ only screen and (min-width: 576px) and (max-width: 767px) {
   color: var(--clr-common-white); /* or any other color you prefer */
 }
 /* Style for disabled options */
+
+/* Style for the custom drop-down indicator */
+.select-box::after {
+  content: "\25BE"; /* Unicode for down arrow */
+  position: absolute;
+  top: calc(50% - 10px); /* Vertically center the arrow */
+  right: 15px; /* Position the arrow on the right side */
+  font-size: 16px; /* Adjust the size of the arrow */
+  color: var(--clr-common-white); /* Color of the arrow */
+  pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select box */
+}
+/* Style the date input to match the rest of the form */
+.contact-input input[type="date"] {
+  height: 60px; /* Match the height of other input fields */
+  width: 100%;
+  font-size: 14px;
+  border: 0;
+  border-bottom: 1px solid var(--clr-common-white);
+  outline: none;
+  background: transparent;
+  color: var(--clr-common-white);
+  padding-right: 30px; /* Add space for the calendar icon */
+ 
+}
 
 
 /*----------------------------------------

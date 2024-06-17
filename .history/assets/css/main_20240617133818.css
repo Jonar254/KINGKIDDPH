@@ -9458,6 +9458,21 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 /* Style for disabled options */
 
 
+/* Style the date input to match the rest of the form */
+.contact-input input[type="date"] {
+  height: 60px; /* Match the height of other input fields */
+  width: 100%;
+  font-size: 14px;
+  border: 0;
+  border-bottom: 1px solid var(--clr-common-white);
+  outline: none;
+  background: transparent;
+  color: var(--clr-common-white);
+  padding-right: 30px; /* Add space for the calendar icon */
+ 
+}
+
+
 /*----------------------------------------
 	35. services css
 ----------------------------------------*/

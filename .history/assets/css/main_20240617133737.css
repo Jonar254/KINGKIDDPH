@@ -9226,17 +9226,12 @@ body {
   background: var(--clr-theme-1);
   margin-left: 30px;
 }
-
-@media only screen and (min-width: 1200px) and (max-width: 1399px),
-only screen and (min-width: 992px) and (max-width: 1199px) {
+@media only screen and (min-width: 1200px) and (max-width: 1399px), only screen and (min-width: 992px) and (max-width: 1199px) {
   .contact-form {
     padding: 60px 30px;
   }
 }
-
-@media (max-width: 575px),
-only screen and (min-width: 768px) and (max-width: 991px),
-only screen and (min-width: 576px) and (max-width: 767px) {
+@media (max-width: 575px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 576px) and (max-width: 767px) {
   .contact-form {
     padding: 60px 30px;
     margin-left: 0px;
@@ -9244,74 +9239,14 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 }
 
 .contact-input input,
-.contact-input textarea,
-.contact-input select {
+.contact-input textarea {
   height: 60px;
   width: 100%;
   font-size: 14px;
-  border: 1px solid var(--clr-common-white);
-  border-radius: 4px;
+  border: 0;
+  border-bottom: 1px solid var(--clr-common-white);
   outline: none;
   background: transparent;
-  color: var(--clr-common-white);
-  padding: 10px;
-  box-sizing: border-box;
-  transition: border-color 0.3s;
-}
-
-.contact-input input:focus,
-.contact-input textarea:focus,
-.contact-input select:focus {
-  border-color: var(--clr-primary);
-}
-
-.contact-input select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  color: var(--clr-common-white);
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.contact-input select option {
-  background-color: var(--clr-theme-1);
-  color: var(--clr-common-white);
-}
-
-.contact-input input[type="date"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  color: var(--clr-common-white);
-  height: 60px;
-  width: 100%;
-  font-size: 14px;
-  border: 1px solid var(--clr-common-white);
-  border-radius: 4px;
-  outline: none;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.contact-input input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  filter: invert(1);
-}
-
-.contact-input textarea {
-  height: 120px; /* Increase the height to 120px or adjust as needed */
-  resize: none; /* Disable textarea resizing */
-  padding-top: 15px; /* Add padding to the top of the textarea */
-  padding-bottom: 15px; /* Add padding to the bottom of the textarea */
-}
-
-.contact-input label {
-  font-size: 14px;
-  margin-bottom: 5px;
-  display: block;
   color: var(--clr-common-white);
 }
 
@@ -9329,30 +9264,11 @@ only screen and (min-width: 576px) and (max-width: 767px) {
   position: relative;
   margin-bottom: 20px;
 }
-
-.contact-btn .input-btn {
-  color: var(--clr-common-white);
-}
-.contact-btn .input-btn:hover {
-  border-color: var(--clr-theme-2);
-}
-
-/* Change placeholder color for all input fields */
-.contact-input input::placeholder,
-.contact-input textarea::placeholder,
-.contact-input select::placeholder {
-  color: #f4f4f49c; /* Change placeholder color to white or #f4f4f4 */
-}
-
-/* Style for the custom drop-down indicator */
-.select-box::after {
-  content: "\25BE"; /* Unicode for down arrow */
-  position: absolute;
-  top: calc(50% - 10px); /* Vertically center the arrow */
-  right: 15px; /* Position the arrow on the right side */
-  font-size: 16px; /* Adjust the size of the arrow */
-  color: var(--clr-common-white); /* Color of the arrow */
-  pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select box */
+.contact-input textarea {
+  height: 80px;
+  resize: none;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .contact-btn .input-btn {
@@ -9456,6 +9372,30 @@ only screen and (min-width: 576px) and (max-width: 767px) {
   color: var(--clr-common-white); /* or any other color you prefer */
 }
 /* Style for disabled options */
+
+/* Style for the custom drop-down indicator */
+.select-box::after {
+  content: "\25BE"; /* Unicode for down arrow */
+  position: absolute;
+  top: calc(50% - 10px); /* Vertically center the arrow */
+  right: 15px; /* Position the arrow on the right side */
+  font-size: 16px; /* Adjust the size of the arrow */
+  color: var(--clr-common-white); /* Color of the arrow */
+  pointer-events: none; /* Ensure the arrow doesn't interfere with clicking the select box */
+}
+/* Style the date input to match the rest of the form */
+.contact-input input[type="date"] {
+  height: 60px; /* Match the height of other input fields */
+  width: 100%;
+  font-size: 14px;
+  border: 0;
+  border-bottom: 1px solid var(--clr-common-white);
+  outline: none;
+  background: transparent;
+  color: var(--clr-common-white);
+  padding-right: 30px; /* Add space for the calendar icon */
+ 
+}
 
 
 /*----------------------------------------
