@@ -9354,7 +9354,7 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 }
 /* Adjust date input size */
 .contact-input input[type="date"] {
-  padding: 10px; /* Adjust padding to fit the date in the box */
+  padding: 50px; /* Adjust padding to fit the date in the box */
   font-size: 14px; /* Adjust font size to fit the date in the box */
 }
 

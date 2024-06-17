@@ -9352,10 +9352,9 @@ only screen and (min-width: 576px) and (max-width: 767px) {
   padding-top: 15px; /* Add padding to the top of the textarea */
   padding-bottom: 15px; /* Add padding to the bottom of the textarea */
 }
-/* Adjust date input size */
-.contact-input input[type="date"] {
-  padding: 10px; /* Adjust padding to fit the date in the box */
-  font-size: 14px; /* Adjust font size to fit the date in the box */
+/* Change color of "Choose service" option */
+.select-box select option[value=""] {
+  color: #ff0000; /* Change the color to gray (#999) or any other color you prefer */
 }
 
 
