@@ -9245,7 +9245,8 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 
 .contact-input input,
 .contact-input textarea,
-.contact-input select {
+.contact-input select,
+.contact-input input[type="date"] {
   height: 60px;
   width: 100%;
   font-size: 14px;
@@ -9261,23 +9262,9 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 
 .contact-input input:focus,
 .contact-input textarea:focus,
-.contact-input select:focus {
+.contact-input select:focus,
+.contact-input input[type="date"]:focus {
   border-color: var(--clr-primary);
-}
-
-.contact-input select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  color: var(--clr-common-white);
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.contact-input select option {
-  background-color: var(--clr-theme-1);
-  color: var(--clr-common-white);
 }
 
 .contact-input input[type="date"] {
