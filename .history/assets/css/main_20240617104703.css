@@ -9245,12 +9245,11 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 
 .contact-input input,
 .contact-input textarea,
-.contact-input select,
-.contact-input input[type="date"] {
+.contact-input select {
   height: 60px;
   width: 100%;
   font-size: 14px;
-  border: 1px solid var(--clr-common-white); /* Add a border */
+  border: 1px solid var(--clr-common-white);
   border-radius: 4px; /* Rounded corners */
   outline: none;
   background: transparent;
@@ -9262,22 +9261,8 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 
 .contact-input input:focus,
 .contact-input textarea:focus,
-.contact-input select:focus,
-.contact-input input[type="date"]:focus {
+.contact-input select:focus {
   border-color: var(--clr-primary); /* Change color on focus */
-}
-
-.contact-input input[type="date"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  color: var(--clr-common-white);
-}
-
-.contact-input input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  filter: invert(1); /* Adjusts the icon color to match the text color */
 }
 
 .contact-input textarea {

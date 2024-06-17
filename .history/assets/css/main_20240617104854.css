@@ -9226,17 +9226,12 @@ body {
   background: var(--clr-theme-1);
   margin-left: 30px;
 }
-
-@media only screen and (min-width: 1200px) and (max-width: 1399px),
-only screen and (min-width: 992px) and (max-width: 1199px) {
+@media only screen and (min-width: 1200px) and (max-width: 1399px), only screen and (min-width: 992px) and (max-width: 1199px) {
   .contact-form {
     padding: 60px 30px;
   }
 }
-
-@media (max-width: 575px),
-only screen and (min-width: 768px) and (max-width: 991px),
-only screen and (min-width: 576px) and (max-width: 767px) {
+@media (max-width: 575px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 576px) and (max-width: 767px) {
   .contact-form {
     padding: 60px 30px;
     margin-left: 0px;
@@ -9244,53 +9239,14 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 }
 
 .contact-input input,
-.contact-input textarea,
-.contact-input select,
-.contact-input input[type="date"] {
+.contact-input textarea {
   height: 60px;
   width: 100%;
   font-size: 14px;
-  border: 1px solid var(--clr-common-white); /* Add a border */
-  border-radius: 4px; /* Rounded corners */
+  border: 0;
+  border-bottom: 1px solid var(--clr-common-white);
   outline: none;
   background: transparent;
-  color: var(--clr-common-white);
-  padding: 10px;
-  box-sizing: border-box;
-  transition: border-color 0.3s; /* Smooth transition for focus */
-}
-
-.contact-input input:focus,
-.contact-input textarea:focus,
-.contact-input select:focus,
-.contact-input input[type="date"]:focus {
-  border-color: var(--clr-primary); /* Change color on focus */
-}
-
-.contact-input input[type="date"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  color: var(--clr-common-white);
-}
-
-.contact-input input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  filter: invert(1); /* Adjusts the icon color to match the text color */
-}
-
-.contact-input textarea {
-  height: 80px;
-  resize: none;
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
-
-.contact-input label {
-  font-size: 14px;
-  margin-bottom: 5px;
-  display: block;
   color: var(--clr-common-white);
 }
 
@@ -9307,6 +9263,12 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 .contact-input {
   position: relative;
   margin-bottom: 20px;
+}
+.contact-input textarea {
+  height: 80px;
+  resize: none;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .contact-btn .input-btn {
