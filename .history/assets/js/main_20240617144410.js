@@ -582,14 +582,8 @@ function playVideo(videoId) {
 		],
 	});
 	
-// Function to continuously scroll the slides
-function scrollSlider() {
-    $('.brand-active').slick('slickNext');
-    requestAnimationFrame(scrollSlider);
-}
 
-// Do not call scrollSlider() here to disable continuous scrolling
-
+	
 	/*======================================
 	15.1. brand activation 
 	========================================*/
