@@ -62,6 +62,22 @@
 
 ****************************************************/
 //IMPORTANT!!
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
+	// Disable right-click
+	document.addEventListener('contextmenu', function(e) {
+	  e.preventDefault();
+	});
+	
+	// Prevent F12 key
+	document.addEventListener('keydown', function(e) {
+	  if (e.key === 'F12') {
+		e.preventDefault();
+	  }
+	});
+});
+
+
 
 
 function playVideo(videoId, autoplay = false) {
@@ -522,12 +538,10 @@ function playVideo(videoId) {
 		dots: false,
 		arrows: false,
 		infinite: true,
-		speed: 5000, // Adjust speed as needed
+		speed: 1000,
 		autoplay: true,
-		autoplaySpeed: 0, // Set autoplaySpeed to 0
 		slidesToShow: 5,
 		draggable: true,
-		cssEase: 'linear', // Use linear animation for smooth scrolling
 		responsive: [
 			{
 				breakpoint: 1400,

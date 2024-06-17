@@ -63,7 +63,7 @@
 ****************************************************/
 //IMPORTANT!!
 // script.js
-//document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
 	// Disable right-click
 	document.addEventListener('contextmenu', function(e) {
 	  e.preventDefault();
@@ -75,8 +75,9 @@
 		e.preventDefault();
 	  }
 	});
-  });
-  
+});
+
+
 
 
 function playVideo(videoId, autoplay = false) {
